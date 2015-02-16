@@ -1,0 +1,4 @@
+int32 frequency
+---
+float64 gx
+float64 gy

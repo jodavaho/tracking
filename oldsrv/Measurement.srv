@@ -1,0 +1,4 @@
+int32 frequency
+---
+float64 bearing_local
+bool valid

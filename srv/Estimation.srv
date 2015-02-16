@@ -1,0 +1,8 @@
+geometry_msgs/PoseWithCovariance[] global_pose
+geometry_msgs/PoseWithCovariance optional_prior
+std_msgs/Bool use_prior
+std_msgs/Float64[] global_measurements 
+std_msgs/Float64[] sensor_variance
+std_msgs/Bool ambiguous
+---
+geometry_msgs/PoseWithCovariance global_estimate 

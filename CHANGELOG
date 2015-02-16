@@ -1,0 +1,63 @@
+
+Purpose:
+*As of 1817 this is a LIBRARY-ONLY package.
+*1831 updated API and removed old executables
+*1848 Added ambiguity to IWLS_2D
+*1848 Version used in Staring July 18th 2012
+
+exports: lib/ltracking.so 
+*programatic access to the EKF and various batch estimators for bearing-only tracking. 
+
+
+Future revisions: 
+*include range-only and hybrid tracking.
+*include Active Localization algorithms as static libraries
+
+
+
+======================================================================
+include: tagloc/tracking.h
+
+
+A brief summary is:
+
+Estimates the circumcircle from a list of points on the perimiter.
+void RSN::circumcircle(double px[], double py[], size_t N, double &centerx, double &centery, double& radius);
+
+A maximum likelihood gradient ascent algorithm. Input: All measurements, Output: ML estimate
+void RSN::BOT::Ml_Grad_Asc_2D(const int n, const double sensors[][2], const double bearing_global_radians[], const double sensor_sigma[],double t[2], double target_cov[4], const bool ambig=false, const int max_iters=10000);
+
+An iterated weighted least squares estimation. Input: all measurements, Output: ML estimate + covariance
+void RSN::BOT::IWLS_2D(const int n, const double sensors[][2], const double bearing_global_radians[], const double sensor_sigma[], double t[2], double target_cov[4], const bool ambig=false, const double min_step=.01, const int max_iters=20);
+
+An iterated EKF routine. Input: Prior and current measurement, Output: Posterior (MAP) estimate and covariance. SHOULD experience less linearization error.
+void RSN::BOT::IEKF_2D(const double sensors[2], const double bearing_global_radians, const double sensor_sigma, double t[2], double target_cov[4], const bool ambig=false, const double min_step=.01, const int max_iters=10);
+
+A vanilla EKF update routine. Input: Prior and current measurement, Output: Posterior (MAP) estimate and covariance
+void RSN::BOT::EKF_UP_2D(const double sensor[2], const double bearing_global_radians, const double sensor_sigma, double t[2], double target_cov[4], const bool ambig=false);
+
+=======================================================================
+
+
+Changelog is as follows for this version:
+------------------------------------------------------------------------
+r1817 | jvander | 2012-07-15 21:31:27 -0500 (Sun, 15 Jul 2012) | 1 line
+
+tagloc adjustments and deprications
+------------------------------------------------------------------------
+r1811 | jvander | 2012-07-15 19:28:35 -0500 (Sun, 15 Jul 2012) | 1 line
+
+touched up tracking library
+------------------------------------------------------------------------
+r1803 | jvander | 2012-07-13 11:33:34 -0500 (Fri, 13 Jul 2012) | 1 line
+
+checkpoint: estimators done
+------------------------------------------------------------------------
+r1798 | jvander | 2012-07-11 23:52:11 -0500 (Wed, 11 Jul 2012) | 1 line
+
+tagloc changes. It's worthless with new namespaces. This checkin is safe (will build) before I check in new init / estimation code
+------------------------------------------------------------------------
+r1738 | tokekar | 2012-07-05 14:20:58 -0500 (Thu, 05 Jul 2012) | 1 line
+
+moving things to a stack; code compiles locally, hopefully things don't break, else you know where to revert
+------------------------------------------------------------------------

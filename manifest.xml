@@ -1,0 +1,28 @@
+<package>
+  <description brief="tagloc">
+
+     tagloc
+
+  </description>
+  <author></author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/tagloc</url>
+	<export>
+		<cpp cflags="-I${prefix}/include" lflags="-L${prefix}/lib -ltracking"/>
+	</export>
+	<!--<depend package="eigen"/>-->
+	<rosdep name="eigen3" />
+	<rosdep name="eigen2" />
+	<rosdep name="eigen" />
+	<depend package="helpers"/>
+	<depend package="paramon"/>
+	<depend package="control"/>
+	<depend package="bearing_measurement"/>
+	<depend package="geometry_msgs"/>
+	<depend package="network"/>
+	<depend package="std_srvs"/>
+	
+</package>
+
+

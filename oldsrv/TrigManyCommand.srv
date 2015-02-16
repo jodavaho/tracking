@@ -1,0 +1,4 @@
+int32[] freqs
+int32 C
+---
+bool ACK

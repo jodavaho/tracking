@@ -1,0 +1,6 @@
+int32 frequency
+float64 Zlocal
+float64 fromX
+float64 fromY
+float64 fromTH
+---
