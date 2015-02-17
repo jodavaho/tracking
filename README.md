@@ -3,4 +3,13 @@ Unfortunately, my full tracking library was taken down because it's not clear wh
 
 It previously c++ code for many different types of target-tracking / estimation problems. Note, it was simply implementations of available research, nothing that was not already published by myself or other researchers.
 
-Included: Nonlinear estimation and tracking software in C++. EKF, Iterative Weighted Least Squares, Iterated EKF, Batch-recursive smoothing, for one or more sensors and targets. And more.
+## Included: 
+
+Nonlinear estimation and tracking software in C++. 
+
+* EKF
+* Iterative Weighted Least Squares 
+* Iterated EKF 
+* Batch-recursive smoothing 
+
+for one or more sensors and targets. And more.
